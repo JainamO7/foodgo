@@ -1,0 +1,25 @@
+import 'package:flutter/material.dart';
+
+class AppWidget {
+  static TextStyle HeadlineTetFeildstyle() {
+    return TextStyle(
+      color: Colors.black,
+      fontSize: 30,
+      fontWeight: FontWeight.bold,
+    );
+  }
+
+  static TextStyle sImpleTetFeildstyle() {
+    return TextStyle(
+      color: Colors.black,
+      fontSize: 18,
+    );
+  }
+    static TextStyle whiteTextFeildstyle() {
+    return TextStyle(
+      color: Colors.white,
+      fontSize: 18,
+      fontWeight: FontWeight.bold
+    );
+  }
+}
