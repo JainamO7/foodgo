@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodgo/pages/onboarding.dart';
+import 'package:foodgo/pages/bottomNav.dart';
 
 void main() {
   runApp(const MainApp());
@@ -12,7 +12,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:Onbording()
+      home:Bottomnav()
       
     );
   }

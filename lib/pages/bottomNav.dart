@@ -5,7 +5,7 @@ import 'package:foodgo/pages/home.dart';
 import 'package:foodgo/pages/order.dart';
 import 'package:foodgo/pages/profile.dart';
 import 'package:foodgo/pages/wallet.dart';
-import '';
+
 
 class Bottomnav extends StatefulWidget {
   const Bottomnav({super.key});
