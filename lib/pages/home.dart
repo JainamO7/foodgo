@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:foodgo/model/burger_model.dart';
 import 'package:foodgo/model/category_model.dart';
+import 'package:foodgo/model/chineseModel.dart';
+import 'package:foodgo/model/pizza_model.dart';
 import 'package:foodgo/service/Widget_supoort.dart';
+import 'package:foodgo/service/burger_data.dart';
 import 'package:foodgo/service/category_data.dart';
+import 'package:foodgo/service/chinese_data.dart';
+import 'package:foodgo/service/pizza_data.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -12,10 +18,16 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<CategoryModel> categories = [];
-  String track ="0" ;
+  List<PizzaModel> pizza = [];
+  List<BurgerModel> burger = [];
+  List<Chinesemodel> chinese = [];
+  String track = "0";
   @override
   void initState() {
+    chinese = getChinese();
+    pizza = getPizza();
     categories = getCategories();
+    burger = getBurger();
     // TODO: implement initState
     super.initState();
   }
@@ -98,20 +110,148 @@ class _HomeState extends State<Home> {
                 itemCount: categories.length,
                 itemBuilder: (context, index) {
                   return CategoryTile(
-                 categories[index].name.toString(),
+                    categories[index].name.toString(),
                     categories[index].image.toString(),
                     index.toString(),
                   );
                 },
               ),
             ),
+            SizedBox(height: 10),
+        track =="0"?    Expanded(
+              // height: MediaQuery.of(context).size.height / 2,
+              child: Container(
+                margin: EdgeInsets.only(right: 10),
+                child: GridView.builder(
+                  padding: EdgeInsets.zero,
+                  itemCount: pizza.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 0.96,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 15,
+                  ),
+                  itemBuilder: (context, index) {
+                    return FoodTile(
+                      pizza[index].name!,
+                      pizza[index].image!,
+                      pizza[index].price!,
+                    );
+                  },
+                ),
+              ),
+            ): track == "1" ? Expanded(
+              // height: MediaQuery.of(context).size.height / 2,
+              child: Container(
+                margin: EdgeInsets.only(right: 10),
+                child: GridView.builder(
+                  padding: EdgeInsets.zero,
+                  itemCount: burger.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 0.96,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 15,
+                  ),
+                  itemBuilder: (context, index) {
+                    return FoodTile(
+                      burger[index].name!,
+                      burger[index].image!,
+                      burger[index].price!,
+                    );
+                  },
+                ),
+              ),
+            ) : track == "2" ? Expanded(
+              // height: MediaQuery.of(context).size.height / 2,
+              child: Container(
+                margin: EdgeInsets.only(right: 10),
+                child: GridView.builder(
+                  padding: EdgeInsets.zero,
+                  itemCount: chinese.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 0.96,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 15,
+                  ),
+                  itemBuilder: (context, index) {
+                    return FoodTile(
+                      chinese[index].name!,
+                      chinese[index].image!,
+                      chinese[index].price!,
+                    );
+                  },
+                ),
+              ),
+            ) : Expanded(
+              // height: MediaQuery.of(context).size.height / 2,
+              child: Container(
+                margin: EdgeInsets.only(right: 10),
+                child: GridView.builder(
+                  padding: EdgeInsets.zero,
+                  itemCount: pizza.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 0.96,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 15,
+                  ),
+                  itemBuilder: (context, index) {
+                    return FoodTile(
+                      pizza[index].name!,
+                      pizza[index].image!,
+                      pizza[index].price!,
+                    );
+                  },
+                ),
+              ),
+            )
           ],
         ),
       ),
     );
   }
-  Widget CategoryTile(String name,String image, String categoryIndex){
- return GestureDetector(
+
+  Widget FoodTile(String name, String image, String price) {
+    return Container(
+      margin: EdgeInsets.only(right: 20.0),
+      padding: EdgeInsets.only(left: 10, top: 10),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black38),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.asset(name, height: 150, width: 150, fit: BoxFit.contain),
+          Text(name, style: AppWidget.boldtextfeildStyle()),
+          Text("\n$price", style: AppWidget.priceTextFeildStyle()),
+          Spacer(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Container(
+                height: 50,
+                width: 80,
+                decoration: BoxDecoration(
+                  color: Color(0xffef2b39),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    bottomRight: Radius.circular(20),
+                  ),
+                ),
+                child: Icon(Icons.arrow_forward, color: Colors.white),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget CategoryTile(String name, String image, String categoryIndex) {
+    return GestureDetector(
       onTap: () {
         setState(() {});
         track = categoryIndex.toString();
@@ -159,4 +299,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-

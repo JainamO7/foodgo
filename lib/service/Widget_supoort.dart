@@ -22,4 +22,17 @@ class AppWidget {
       fontWeight: FontWeight.bold
     );
   }
+
+   static TextStyle boldtextfeildStyle() {
+    return TextStyle(
+      color: Colors.black,
+      fontSize: 20,fontWeight: FontWeight.bold
+    );
+  }
+   static TextStyle priceTextFeildStyle() {
+    return TextStyle(
+      color: const Color.fromARGB(178, 0, 0, 0),
+      fontSize: 24,
+    );
+  }
 }
