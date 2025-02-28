@@ -43,3 +43,43 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+# Flutter
+**/build/
+**/android/app/debug/
+**/android/app/profile/
+**/android/app/release/
+
+# iOS
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/
+**/ios/Runner.xcworkspace/
+
+# Dart & Flutter dependencies
+**/.dart_tool/
+**/.packages
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.pub-cache/
+**/.pub/
+
+# VS Code
+**/.vscode/
+
+# IDE files
+**/.idea/
+**/*.iml
+
+# Firebase
+**/android/app/google-services.json
+**/ios/Runner/GoogleService-Info.plist
+
+# Environment files
+**/.env
+**/.env.*
+
+# Misc
+**/pubspec.lock
+**/generated_plugin_registrant.dart
+**/coverage/
+**/test/
