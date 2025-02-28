@@ -3,6 +3,7 @@ import 'package:foodgo/model/burger_model.dart';
 import 'package:foodgo/model/category_model.dart';
 import 'package:foodgo/model/chineseModel.dart';
 import 'package:foodgo/model/pizza_model.dart';
+import 'package:foodgo/pages/detail_page.dart';
 import 'package:foodgo/service/Widget_supoort.dart';
 import 'package:foodgo/service/burger_data.dart';
 import 'package:foodgo/service/category_data.dart';
@@ -118,95 +119,101 @@ class _HomeState extends State<Home> {
               ),
             ),
             SizedBox(height: 10),
-        track =="0"?    Expanded(
-              // height: MediaQuery.of(context).size.height / 2,
-              child: Container(
-                margin: EdgeInsets.only(right: 10),
-                child: GridView.builder(
-                  padding: EdgeInsets.zero,
-                  itemCount: pizza.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 0.96,
-                    mainAxisSpacing: 20,
-                    crossAxisSpacing: 15,
+            track == "0"
+                ? Expanded(
+                  // height: MediaQuery.of(context).size.height / 2,
+                  child: Container(
+                    margin: EdgeInsets.only(right: 10),
+                    child: GridView.builder(
+                      padding: EdgeInsets.zero,
+                      itemCount: pizza.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: 0.96,
+                        mainAxisSpacing: 20,
+                        crossAxisSpacing: 15,
+                      ),
+                      itemBuilder: (context, index) {
+                        return FoodTile(
+                          pizza[index].name!,
+                          pizza[index].image!,
+                          pizza[index].price!,
+                        );
+                      },
+                    ),
                   ),
-                  itemBuilder: (context, index) {
-                    return FoodTile(
-                      pizza[index].name!,
-                      pizza[index].image!,
-                      pizza[index].price!,
-                    );
-                  },
-                ),
-              ),
-            ): track == "1" ? Expanded(
-              // height: MediaQuery.of(context).size.height / 2,
-              child: Container(
-                margin: EdgeInsets.only(right: 10),
-                child: GridView.builder(
-                  padding: EdgeInsets.zero,
-                  itemCount: burger.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 0.96,
-                    mainAxisSpacing: 20,
-                    crossAxisSpacing: 15,
+                )
+                : track == "1"
+                ? Expanded(
+                  // height: MediaQuery.of(context).size.height / 2,
+                  child: Container(
+                    margin: EdgeInsets.only(right: 10),
+                    child: GridView.builder(
+                      padding: EdgeInsets.zero,
+                      itemCount: burger.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: 0.96,
+                        mainAxisSpacing: 20,
+                        crossAxisSpacing: 15,
+                      ),
+                      itemBuilder: (context, index) {
+                        return FoodTile(
+                          burger[index].name!,
+                          burger[index].image!,
+                          burger[index].price!,
+                        );
+                      },
+                    ),
                   ),
-                  itemBuilder: (context, index) {
-                    return FoodTile(
-                      burger[index].name!,
-                      burger[index].image!,
-                      burger[index].price!,
-                    );
-                  },
-                ),
-              ),
-            ) : track == "2" ? Expanded(
-              // height: MediaQuery.of(context).size.height / 2,
-              child: Container(
-                margin: EdgeInsets.only(right: 10),
-                child: GridView.builder(
-                  padding: EdgeInsets.zero,
-                  itemCount: chinese.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 0.96,
-                    mainAxisSpacing: 20,
-                    crossAxisSpacing: 15,
+                )
+                : track == "2"
+                ? Expanded(
+                  // height: MediaQuery.of(context).size.height / 2,
+                  child: Container(
+                    margin: EdgeInsets.only(right: 10),
+                    child: GridView.builder(
+                      padding: EdgeInsets.zero,
+                      itemCount: chinese.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: 0.96,
+                        mainAxisSpacing: 20,
+                        crossAxisSpacing: 15,
+                      ),
+                      itemBuilder: (context, index) {
+                        return FoodTile(
+                          chinese[index].name!,
+                          chinese[index].image!,
+                          chinese[index].price!,
+                        );
+                      },
+                    ),
                   ),
-                  itemBuilder: (context, index) {
-                    return FoodTile(
-                      chinese[index].name!,
-                      chinese[index].image!,
-                      chinese[index].price!,
-                    );
-                  },
-                ),
-              ),
-            ) : Expanded(
-              // height: MediaQuery.of(context).size.height / 2,
-              child: Container(
-                margin: EdgeInsets.only(right: 10),
-                child: GridView.builder(
-                  padding: EdgeInsets.zero,
-                  itemCount: pizza.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 0.96,
-                    mainAxisSpacing: 20,
-                    crossAxisSpacing: 15,
+                )
+                : Expanded(
+                  // height: MediaQuery.of(context).size.height / 2,
+                  child: Container(
+                    margin: EdgeInsets.only(right: 10),
+                    child: GridView.builder(
+                      padding: EdgeInsets.zero,
+                      itemCount: pizza.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: 0.96,
+                        mainAxisSpacing: 20,
+                        crossAxisSpacing: 15,
+                      ),
+                      itemBuilder: (context, index) {
+                        return FoodTile(
+                          pizza[index].name!,
+                          pizza[index].image!,
+                          pizza[index].price!,
+                        );
+                      },
+                    ),
                   ),
-                  itemBuilder: (context, index) {
-                    return FoodTile(
-                      pizza[index].name!,
-                      pizza[index].image!,
-                      pizza[index].price!,
-                    );
-                  },
                 ),
-              ),
-            )
           ],
         ),
       ),
@@ -231,17 +238,25 @@ class _HomeState extends State<Home> {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Container(
-                height: 50,
-                width: 80,
-                decoration: BoxDecoration(
-                  color: Color(0xffef2b39),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    bottomRight: Radius.circular(20),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DetailPage(name: name,image: image,price: price,)),
+                  );
+                },
+                child: Container(
+                  height: 50,
+                  width: 80,
+                  decoration: BoxDecoration(
+                    color: Color(0xffef2b39),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      bottomRight: Radius.circular(20),
+                    ),
                   ),
+                  child: Icon(Icons.arrow_forward, color: Colors.white),
                 ),
-                child: Icon(Icons.arrow_forward, color: Colors.white),
               ),
             ],
           ),

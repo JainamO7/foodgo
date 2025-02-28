@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:foodgo/model/category_model.dart';
 
 List<CategoryModel> getCategories() {

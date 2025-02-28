@@ -10,29 +10,34 @@ class AppWidget {
   }
 
   static TextStyle sImpleTetFeildstyle() {
-    return TextStyle(
-      color: Colors.black,
-      fontSize: 18,
-    );
+    return TextStyle(color: Colors.black, fontSize: 18);
   }
-    static TextStyle whiteTextFeildstyle() {
+
+  static TextStyle whiteTextFeildstyle() {
     return TextStyle(
       color: Colors.white,
       fontSize: 18,
-      fontWeight: FontWeight.bold
+      fontWeight: FontWeight.bold,
     );
   }
 
-   static TextStyle boldtextfeildStyle() {
+  static TextStyle boldtextfeildStyle() {
     return TextStyle(
       color: Colors.black,
-      fontSize: 20,fontWeight: FontWeight.bold
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
     );
   }
-   static TextStyle priceTextFeildStyle() {
+
+  static TextStyle priceTextFeildStyle() {
+    return TextStyle(color: const Color.fromARGB(178, 0, 0, 0), fontSize: 24);
+  }
+
+  static TextStyle boldWhitetextFeildStyle() {
     return TextStyle(
-      color: const Color.fromARGB(178, 0, 0, 0),
+      color: Colors.white,
       fontSize: 24,
+      fontWeight: FontWeight.bold,
     );
   }
 }
