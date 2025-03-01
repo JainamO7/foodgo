@@ -121,8 +121,8 @@ class _HomeState extends State<Home> {
             SizedBox(height: 10),
             track == "0"
                 ? Expanded(
-                  // height: MediaQuery.of(context).size.height / 2,
                   child: Container(
+                    height: MediaQuery.of(context).size.height / 2,
                     margin: EdgeInsets.only(right: 10),
                     child: GridView.builder(
                       padding: EdgeInsets.zero,
@@ -242,7 +242,14 @@ class _HomeState extends State<Home> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => DetailPage(name: name,image: image,price: price,)),
+                    MaterialPageRoute(
+                      builder:
+                          (context) => DetailPage(
+                            name: name,
+                            image: image,
+                            price: price,
+                          ),
+                    ),
                   );
                 },
                 child: Container(

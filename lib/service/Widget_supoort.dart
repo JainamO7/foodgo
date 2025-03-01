@@ -40,4 +40,8 @@ class AppWidget {
       fontWeight: FontWeight.bold,
     );
   }
+
+    static TextStyle SignupTextFeildStyle() {
+    return TextStyle(color: const Color.fromARGB(178, 0, 0, 0), fontSize: 20);
+  }
 }

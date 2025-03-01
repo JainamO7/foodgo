@@ -3,15 +3,25 @@ import 'package:foodgo/service/Widget_supoort.dart';
 
 class DetailPage extends StatefulWidget {
   String image, name, price;
-  DetailPage({super.key, required this.image, required this.name, required this.price});
+  DetailPage({
+    super.key,
+    required this.image,
+    required this.name,
+    required this.price,
+  });
 
   @override
   State<DetailPage> createState() => _DetailPageState();
 }
 
-
-
 class _DetailPageState extends State<DetailPage> {
+  int quantity = 1, totalPrice = 0;
+  @override
+  void initState() {
+    totalPrice = int.parse(widget.price);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,31 +72,49 @@ class _DetailPageState extends State<DetailPage> {
             SizedBox(height: 10),
             Row(
               children: [
-                Material(
-                  borderRadius: BorderRadius.circular(10),
-                  elevation: 3,
-                  child: Container(
-                    padding: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      color: Color(0xffef2b39),
-                      borderRadius: BorderRadius.circular(10),
+                GestureDetector(
+                  onTap: () {
+                    quantity = quantity++;
+                    totalPrice = totalPrice + int.parse(widget.price);
+                    setState(() {});
+                  },
+                  child: Material(
+                    borderRadius: BorderRadius.circular(10),
+                    elevation: 3,
+                    child: Container(
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        color: Color(0xffef2b39),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Icon(Icons.add, color: Colors.white, size: 30),
                     ),
-                    child: Icon(Icons.add, color: Colors.white, size: 30),
                   ),
                 ),
                 SizedBox(width: 20),
                 Text("1", style: AppWidget.HeadlineTetFeildstyle()),
                 SizedBox(width: 20),
-                Material(
-                  borderRadius: BorderRadius.circular(10),
-                  elevation: 3,
-                  child: Container(
-                    padding: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      color: Color(0xffef2b39),
-                      borderRadius: BorderRadius.circular(10),
+                GestureDetector(
+                  onTap: () {
+                    if (quantity > 1) {
+                      quantity = quantity--;
+                      totalPrice = totalPrice + int.parse(widget.price);
+                        setState(() {});
+                    }
+
+                  
+                  },
+                  child: Material(
+                    borderRadius: BorderRadius.circular(10),
+                    elevation: 3,
+                    child: Container(
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        color: Color(0xffef2b39),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Icon(Icons.remove, color: Colors.white, size: 30),
                     ),
-                    child: Icon(Icons.remove, color: Colors.white, size: 30),
                   ),
                 ),
                 SizedBox(width: 20),
