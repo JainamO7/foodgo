@@ -44,4 +44,16 @@ class AppWidget {
     static TextStyle SignupTextFeildStyle() {
     return TextStyle(color: const Color.fromARGB(178, 0, 0, 0), fontSize: 20);
   }
+
+  static snackbarMsg(context,Color color,String msg){
+     ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: color,
+            content: Text(
+              msg,
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          ),
+        );
+  }
 }

@@ -35,6 +35,7 @@ class _BottomnavState extends State<Bottomnav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body:pages[currentTableIndex],
       bottomNavigationBar: CurvedNavigationBar(
         items: [Icon(Icons.home,color: Colors.white,size: 30,),Icon(Icons.shopping_bag,color: Colors.white,size: 30,),Icon(Icons.wallet,color: Colors.white,size: 30,),Icon(Icons.person,color: Colors.white,size: 30,),],
         height: 70,

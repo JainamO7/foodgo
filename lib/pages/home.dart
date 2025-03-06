@@ -231,7 +231,7 @@ class _HomeState extends State<Home> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(name, height: 150, width: 150, fit: BoxFit.contain),
+          Image.asset(image, height: 150, width: 150, fit: BoxFit.contain),
           Text(name, style: AppWidget.boldtextfeildStyle()),
           Text("\n$price", style: AppWidget.priceTextFeildStyle()),
           Spacer(),
